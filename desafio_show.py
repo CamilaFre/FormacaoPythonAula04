@@ -31,17 +31,21 @@ while i < l:
 
     print(quiz[i]['pergunta'])
     for n, valor in enumerate(quiz[i]['alternativas']):
-        # print(quiz[0]['alternativas'][n])
+     
         print(n + 1, "-", valor)
-    r = int(input( ))
-    if (quiz[i]["alternativas"][r - 1]) == quiz[i]["correta"]:
+    r = input( )
+    if r.isdecimal() and int(r) <= 3:
+        r = int(r)
+        if (quiz[i]["alternativas"][r - 1]) == quiz[i]["correta"]:
             print("Você acertou, miserávi!!!")
             c +=1
-    else:
+        else:
             print("Você errou feio, errou rude!!!")
-
+    else:
+        print("você digitou um valor inválido, tente novamente")
+        continue
 
     i = i+1
-#print(c)
+
 taxa = c/l
-print(f'Você acertou {c} perguntas de {l} o que equivale a uma taxa de acertos de {taxa:.0%} ')
+print(f'Você acertou {c} perguntas de {l} o que equivale a uma taxa de acertos de {taxa:.0%}  ')
